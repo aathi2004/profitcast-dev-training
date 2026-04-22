@@ -1,0 +1,276 @@
+:root {
+  --bg: #0a1128;
+  --surface: #111a3a;
+  --surface-2: #18234a;
+  --border: #23305c;
+  --border-strong: #2f3e72;
+  --text: #eef1f8;
+  --muted: #9aa5c4;
+  --accent: #e63946;
+  --accent-hover: #ff5a67;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --max-width: 900px;
+  --transition: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* ========== Topbar ========== */
+
+.topbar {
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 56px;
+  padding: 0.75rem 1rem;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-dot {
+  color: var(--accent);
+  margin: 0 0.2rem;
+}
+
+/* ========== Compact icon theme toggle ========== */
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--transition), color var(--transition),
+    background-color var(--transition), transform var(--transition);
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ========== Main demo ========== */
+
+main {
+  flex: 1;
+  padding: 2rem 0 3rem;
+}
+
+.demo-header {
+  max-width: 56ch;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.demo h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.muted code {
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.85em;
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ========== Cards ========== */
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  transition: background-color var(--transition),
+    border-color var(--transition), transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px -18px rgba(230, 57, 70, 0.45);
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ========== Footer ========== */
+
+footer {
+  padding: 1.25rem 1rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  transition: border-color var(--transition);
+}
+
+/* ========== Section reveal animations (used by script.js) ========== */
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-hidden,
+  .section-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========== Breakpoints (mobile-first) ========== */
+
+@media (min-width: 600px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  .topbar-inner {
+    padding: 0.9rem 1.5rem;
+    min-height: 64px;
+  }
+  .brand {
+    font-size: 1.1rem;
+  }
+  main {
+    padding: 3rem 0 4rem;
+  }
+  .demo h2 {
+    font-size: 1.85rem;
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .demo h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ========== Light Mode ========== */
+
+body.light-mode {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef1f8;
+  --border: #dbe1ed;
+  --border-strong: #b9c2d6;
+  --text: #0a1128;
+  --muted: #4a5578;
+  --accent-hover: #c72a37;
+}
+
+body.light-mode .card:hover {
+  box-shadow: 0 16px 40px -20px rgba(10, 17, 40, 0.18);
+}

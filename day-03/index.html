@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Day 03 — standalone dark/light theme toggle demo." />
+  <title>Day 03 — Theme Toggle Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <h1 class="brand">Day 03 <span class="brand-dot">•</span> Theme Toggle</h1>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        title="Toggle theme"
+      >☀</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="demo">
+      <div class="demo-header">
+        <span class="eyebrow">JavaScript Day</span>
+        <h2>Dark / Light mode demo</h2>
+        <p class="muted">
+          Click the sun / moon icon in the top-right to flip themes. Your
+          choice is saved to <code>localStorage</code>, so the page loads in
+          the same theme next time you visit.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Surface</h3>
+          <p>
+            Cards and panels automatically pick up the current theme's
+            background and border colors through CSS custom properties.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Typography</h3>
+          <p>
+            Headings stay high-contrast while body copy shifts to a softer
+            muted tone in both themes for comfortable reading.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Accent</h3>
+          <p>
+            The <span class="accent">accent color</span> holds steady across
+            themes so the brand feel stays consistent either way.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="muted">Day 03 &middot; standalone JavaScript demo</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
